@@ -1,0 +1,5 @@
+git init
+npx hardhat run scripts/deploy-agreement.js --network sepolia
+npx hardhat run scripts/deploy-greeter.js --network sepolia
+npx hardhat console --network amoy --eval "const signer = await ethers.getSigner(); console.log('Your wallet address:', await signer.getAddress());"
+npx hardhat run scripts/deploy-greeter.js --network amoy
