@@ -1,386 +1,354 @@
-# Troc-Service WhatsApp Conversation Script
+# 📱 Script de Conversation WhatsApp - Troc-Service Bafoka
 
-## Welcome Message
+## 🎯 Vue d'ensemble
+
+Ce script guide l'intégration WhatsApp avec le système de monnaie communautaire **Bafoka**. Chaque communauté a sa propre variante de monnaie (Fonjoka, Banjika, Bafouka) et les échanges sont limités aux membres de la même communauté.
+
+## 🏘️ Communautés et Monnaies
+
+- **1. Fondjomenkwet** → Monnaie : **Fonjoka**
+- **2. Banja** → Monnaie : **Banjika**  
+- **3. Bafouka** → Monnaie : **Bafouka**
+
+## 💰 Système Bafoka
+
+- **Distribution initiale** : 1000 Bafoka à l'inscription
+- **Isolation communautaire** : Échanges uniquement dans la même communauté
+- **Système de backers** : Commerçants locaux peuvent recharger les comptes
+
+## 🔄 Flux de Conversation
+
+### 1. **Accueil et Inscription**
 ```
-🤝 Bienvenue sur Troc-Service !
-La marketplace d'échange de services sans argent.
+🤖 : "Bienvenue sur Troc-Service ! 🌟
+     Choisissez votre communauté pour commencer :
 
-Tapez *HELP* pour voir les commandes disponibles.
-Tapez *REGISTER* pour commencer votre inscription.
-```
+     1️⃣ Fondjomenkwet (Fonjoka)
+     2️⃣ Banja (Banjika)  
+     3️⃣ Bafouka (Bafouka)
 
-## Help Command
-```
-📋 COMMANDES DISPONIBLES :
+     Répondez par le numéro de votre communauté."
 
-*REGISTER* - S'inscrire sur la plateforme
-*OFFER* [service] [heures] - Proposer un service
-*SEARCH* [service] - Rechercher un service
-*MY_OFFERS* - Voir vos offres
-*MY_AGREEMENTS* - Voir vos accords
-*PROFILE* - Voir votre profil
-*HELP* - Afficher cette aide
+👤 : "1"
 
-Exemples :
-OFFER design logo 3
-SEARCH comptabilité
-```
+🤖 : "Parfait ! Vous rejoignez la communauté Fondjomenkwet.
+     Entrez votre nom d'utilisateur :"
 
-## Registration Flow
-oblè
-### Step 1: Start Registration
-```
-📝 INSCRIPTION TROC-SERVICE
+👤 : "Alice"
 
-Pour commencer, donnez-moi votre nom complet :
-```
+🤖 : "🎉 Félicitations Alice ! Vous êtes maintenant membre de Fondjomenkwet !
+     💰 Votre solde : 1000 Fonjoka
+     🏘️ Communauté : Fondjomenkwet
+     ⭐ Réputation : 50/100
 
-### Step 2: Get Name
-```
-Merci [NOM] !
-
-Maintenant, quel est votre numéro de téléphone ?
-(Format: +237 6 XX XX XX XX)
-```
-
-### Step 3: Get Phone
-```
-Parfait ! Votre numéro est enregistré.
-
-Quelle est votre adresse email ?
+     Tapez *MENU* pour voir les commandes disponibles."
 ```
 
-### Step 4: Get Email
+### 2. **Menu Principal**
 ```
-Excellent ! Maintenant, dites-moi quels services vous proposez.
+🤖 : "📋 MENU PRINCIPAL - Troc-Service
 
-Format : *OFFER* [service] [heures]
-Exemple : OFFER design graphique 5
-
-Ou tapez *SKIP* pour ajouter plus tard.
-```
-
-### Step 5: Get Services
-```
-Parfait ! Vos services ont été enregistrés.
-
-Maintenant, quels services recherchez-vous ?
-
-Format : *NEED* [service]
-Exemple : NEED comptabilité
-
-Ou tapez *SKIP* pour ajouter plus tard.
+     💰 *SOLDE* - Voir votre solde Fonjoka
+     🔍 *RECHERCHER* - Trouver des services
+     📤 *OFFRIR* - Proposer vos services
+     🤝 *ECHANGER* - Créer un échange
+     📊 *PROFIL* - Voir votre profil
+     🏪 *BACKERS* - Trouver des recharges
+     ❓ *AIDE* - Aide et commandes
+     🔄 *COMMUNAUTE* - Info communauté"
 ```
 
-### Step 6: Registration Complete
+### 3. **Recherche de Services**
 ```
-🎉 Inscription terminée !
+👤 : "RECHERCHER"
 
-Votre profil Troc-Service a été créé avec succès.
+🤖 : "🔍 Que recherchez-vous ?
+     Exemples : couture, coiffure, réparation, cours...
 
-Tapez *PROFILE* pour voir vos informations.
-Tapez *OFFER* pour ajouter un service.
-Tapez *SEARCH* pour trouver des services.
-```
+     Entrez votre recherche :"
 
-## Offer Service Flow
+👤 : "couture"
 
-### Step 1: Offer Command
-```
-📤 PROPOSER UN SERVICE
+🤖 : "👗 Services de couture disponibles dans Fondjomenkwet :
 
-Format : *OFFER* [service] [heures]
-Exemple : OFFER design logo 3
+     👤 Marie - 150 Fonjoka
+        "Couture sur mesure, robes traditionnelles"
+        ⭐ Réputation : 85/100
+        📍 Quartier : Centre-ville
 
-Décrivez votre service et le nombre d'heures :
-```
+     👤 Fatou - 200 Fonjoka  
+        "Couture moderne, vêtements d'occasion"
+        ⭐ Réputation : 92/100
+        📍 Quartier : Marché central
 
-### Step 2: Process Offer
-```
-✅ Service enregistré !
+     💰 Votre solde : 1000 Fonjoka
 
-Service : [SERVICE]
-Heures : [HEURES]
-Prix : [HEURES] Crédits-Service
-
-Votre offre est maintenant visible pour les autres utilisateurs.
-
-Tapez *MY_OFFERS* pour voir toutes vos offres.
+     Pour proposer un échange, tapez :
+     *PROPOSER [nom] [service] [montant]*"
 ```
 
-## Search Service Flow
-
-### Step 1: Search Command
+### 4. **Proposition d'Échange**
 ```
-🔍 RECHERCHE DE SERVICES
+👤 : "PROPOSER Marie couture 150"
 
-Format : *SEARCH* [service]
-Exemple : SEARCH comptabilité
+🤖 : "🤝 Proposition d'échange créée !
 
-Que recherchez-vous ?
-```
+     📋 Détails :
+     👤 Vous → Marie
+     🎯 Service : Couture
+     💰 Montant : 150 Fonjoka
+     ⏰ Délai : 24h
+     📍 Communauté : Fondjomenkwet
 
-### Step 2: Show Results
-```
-🔍 RÉSULTATS POUR "[SERVICE]" :
+     ✅ Votre solde réservé : 850 Fonjoka
+     ⏳ En attente de confirmation de Marie
 
-1. [NOM] - [SERVICE] ([HEURES]h)
-   ⭐ [RATING]/5 ([POSITIVE_RATINGS]/[TOTAL_RATINGS])
-   📞 [PHONE]
-
-2. [NOM] - [SERVICE] ([HEURES]h)
-   ⭐ [RATING]/5 ([POSITIVE_RATINGS]/[TOTAL_RATINGS])
-   📞 [PHONE]
-
-Pour contacter un prestataire :
-*CONTACT* [NUMÉRO]
-
-Pour proposer un échange :
-*PROPOSE* [NUMÉRO] [VOTRE_SERVICE] [VOS_HEURES]
+     Marie recevra une notification et pourra confirmer l'échange."
 ```
 
-## Contact Flow
-
-### Step 1: Contact Request
+### 5. **Confirmation d'Échange**
 ```
-📞 CONTACT
+🤖 : "🔔 NOUVELLE DEMANDE D'ÉCHANGE !
 
-Format : *CONTACT* [NUMÉRO]
-Exemple : CONTACT 1
+     👤 Alice souhaite vos services de couture
+     💰 Montant : 150 Fonjoka
+     ⏰ Délai : 24h
 
-Quel prestataire voulez-vous contacter ?
-```
+     Pour accepter, tapez : *ACCEPTER [ID]*
+     Pour refuser, tapez : *REFUSER [ID]*
 
-### Step 2: Show Contact Info
-```
-📞 INFORMATIONS DE CONTACT :
+     ID de l'échange : #12345"
 
-Nom : [NOM]
-Téléphone : [PHONE]
-Email : [EMAIL]
-Services : [SERVICES]
+👤 : "ACCEPTER 12345"
 
-Vous pouvez maintenant le contacter directement.
+🤖 : "✅ Échange confirmé ! 
 
-Pour proposer un échange :
-*PROPOSE* [NUMÉRO] [VOTRE_SERVICE] [VOS_HEURES]
-```
+     📋 Échange #12345
+     👤 Alice → Marie
+     🎯 Service : Couture
+     💰 Montant : 150 Fonjoka
+     📍 Communauté : Fondjomenkwet
+     ⏰ Délai : 24h
 
-## Propose Exchange Flow
-
-### Step 1: Propose Command
-```
-🤝 PROPOSER UN ÉCHANGE
-
-Format : *PROPOSE* [NUMÉRO] [SERVICE] [HEURES]
-Exemple : PROPOSE 1 design logo 3
-
-Décrivez votre proposition :
+     💡 Conseil : Contactez Alice pour organiser le service.
+     Une fois terminé, tapez *TERMINE 12345*"
 ```
 
-### Step 2: Confirm Exchange
+### 6. **Finalisation d'Échange**
 ```
-🤝 PROPOSITION D'ÉCHANGE
+👤 : "TERMINE 12345"
 
-Vous proposez :
-- [VOTRE_SERVICE] ([VOS_HEURES]h)
+🤖 : "🎉 Service marqué comme terminé !
 
-En échange de :
-- [LEUR_SERVICE] ([LEURS_HEURES]h)
+     📋 Échange #12345
+     ✅ Statut : Terminé
+     💰 Montant : 150 Fonjoka
 
-Prestataire : [NOM] ([PHONE])
+     Maintenant, évaluez Alice (1-5 étoiles) :
+     *EVALUER 12345 [note] [commentaire]*
 
-Pour confirmer : *CONFIRM* [NUMÉRO]
-Pour annuler : *CANCEL*
-```
+     Exemple : *EVALUER 12345 5 Excellent service !*"
 
-### Step 3: Exchange Confirmed
-```
-✅ ÉCHANGE CONFIRMÉ !
+👤 : "EVALUER 12345 5 Très satisfaite du travail !"
 
-Un contrat intelligent a été créé sur la blockchain.
+🤖 : "⭐ Évaluation enregistrée !
 
-ID Contrat : #[CONTRACT_ID]
-Statut : En attente de confirmation
+     📊 Votre réputation : 85 → 86/100
+     💰 150 Fonjoka transférés sur votre compte
+     📈 Total échanges : 15
 
-Le prestataire recevra une notification.
-Vous serez informé dès qu'il confirmera.
-
-Tapez *MY_AGREEMENTS* pour suivre vos accords.
+     🎯 Prochain objectif : 20 échanges pour le badge "Expert" !
+     
+     Tapez *MENU* pour continuer."
 ```
 
-## Agreement Management
-
-### My Agreements Command
+### 7. **Système de Backers (Recharge)**
 ```
-📋 VOS ACCORDS :
+👤 : "BACKERS"
 
-1. #[ID] - [SERVICE] avec [NOM]
-   Statut : [STATUS]
-   Créé le : [DATE]
+🤖 : "🏪 Backers disponibles dans Fondjomenkwet :
 
-2. #[ID] - [SERVICE] avec [NOM]
-   Statut : [STATUS]
-   Créé le : [DATE]
+     🏪 Épicerie du Centre
+        📍 Rue principale, face au marché
+        💰 Recharge : 100 Fonjoka = 1 régime de plantain
+        📞 Contact : 237 XXX XXX XXX
 
-Pour voir les détails : *DETAILS* [ID]
-Pour marquer comme terminé : *COMPLETE* [ID]
-Pour finaliser : *FINALIZE* [ID]
-```
+     🏪 Boulangerie Traditionnelle  
+        📍 Quartier résidentiel
+        💰 Recharge : 200 Fonjoka = 2 pains traditionnels
+        📞 Contact : 237 XXX XXX XXX
 
-### Agreement Details
-```
-📋 DÉTAILS ACCORD #[ID] :
+     💡 Pour recharger, rendez-vous chez un backer avec des biens.
+     Ils rechargeront votre compte en échange.
 
-Prestataire : [NOM] ([PHONE])
-Service : [SERVICE]
-Heures : [HEURES]
-Créé le : [DATE]
-Statut : [STATUS]
-
-Actions disponibles :
-*COMPLETE* [ID] - Marquer comme terminé
-*FINALIZE* [ID] - Finaliser avec notation
+     Votre solde actuel : 50 Fonjoka"
 ```
 
-### Complete Agreement
+### 8. **Gestion du Profil**
 ```
-✅ SERVICE TERMINÉ !
+👤 : "PROFIL"
 
-L'accord #[ID] a été marqué comme terminé.
+🤖 : "👤 PROFIL - Alice
 
-Le destinataire peut maintenant finaliser l'accord.
-Vous recevrez une notification pour la notation.
+     🏘️ Communauté : Fondjomenkwet
+     💰 Monnaie locale : Fonjoka
+     💳 Solde actuel : 50 Fonjoka
+     ⭐ Réputation : 86/100
+     📊 Total échanges : 15
+     📅 Membre depuis : 15 jours
+     🏆 Badge : Membre actif
 
-Tapez *MY_AGREEMENTS* pour voir vos accords.
-```
+     📈 Statistiques :
+     ✅ Échanges réussis : 14
+     ⚠️ Échanges en cours : 1
+     ❌ Échanges annulés : 0
 
-### Finalize Agreement
-```
-⭐ FINALISER L'ACCORD
-
-Accord #[ID] - [SERVICE] avec [NOM]
-
-Notez le prestataire (1-5 étoiles) :
-*RATE* [ID] [NOTE]
-
-Exemple : RATE 1 5
+     🎯 Prochain objectif : 20 échanges (Expert)"
 ```
 
-### Rating Confirmation
+### 9. **Informations Communautaires**
 ```
-✅ ACCORD FINALISÉ !
+👤 : "COMMUNAUTE"
 
-Accord #[ID] terminé avec succès.
-Note donnée : [NOTE]/5
+🤖 : "🏘️ FONDJOMENKWET - Communauté
 
-Votre réputation a été mise à jour.
-Merci d'avoir utilisé Troc-Service !
+     💰 Monnaie : Fonjoka
+     👥 Membres : 1,247
+     🔄 Transactions : 3,456
+     📅 Créée : 6 mois
 
-Tapez *PROFILE* pour voir votre nouvelle réputation.
-```
+     🏆 Top membres :
+     1. Marie - 98/100 (Expert couture)
+     2. Jean - 95/100 (Réparateur)
+     3. Fatou - 92/100 (Couturière)
 
-## Profile Command
-```
-👤 VOTRE PROFIL :
+     📊 Activité du mois :
+     🔺 Nouveaux membres : +23
+     🔺 Transactions : +156
+     🔺 Fonjoka en circulation : 1,247,000
 
-Nom : [NOM]
-Téléphone : [PHONE]
-Email : [EMAIL]
-
-📊 RÉPUTATION :
-- Accords totaux : [TOTAL]
-- Accords terminés : [COMPLETED]
-- Notes positives : [POSITIVE]/[TOTAL_RATINGS]
-- Note moyenne : [AVERAGE]/5
-
-📤 SERVICES PROPOSÉS :
-[SERVICES]
-
-📥 SERVICES RECHERCHÉS :
-[NEEDS]
-
-Pour modifier : *EDIT_PROFILE*
+     💡 Conseil : Plus vous échangez, plus la communauté grandit !"
 ```
 
-## Error Messages
+## 🚨 Gestion des Erreurs
 
-### Invalid Command
+### **Solde insuffisant**
 ```
-❌ Commande non reconnue.
+🤖 : "❌ Solde insuffisant !
 
-Tapez *HELP* pour voir les commandes disponibles.
-```
+     💰 Solde actuel : 50 Fonjoka
+     💰 Montant requis : 150 Fonjoka
+     ❌ Manque : 100 Fonjoka
 
-### Not Registered
-```
-❌ Vous n'êtes pas encore inscrit.
+     💡 Solutions :
+     1. Rendez-vous chez un backer pour recharger
+     2. Attendez d'autres échanges pour gagner des Fonjoka
+     3. Proposez vos propres services
 
-Tapez *REGISTER* pour commencer votre inscription.
-```
-
-### No Results
-```
-🔍 Aucun service trouvé pour "[SERVICE]".
-
-Essayez avec d'autres mots-clés ou tapez *OFFER* pour proposer ce service.
+     Tapez *BACKERS* pour trouver des recharges."
 ```
 
-### Agreement Not Found
+### **Communauté différente**
 ```
-❌ Accord #[ID] non trouvé.
+🤖 : "❌ Impossible d'échanger avec cette personne !
 
-Tapez *MY_AGREEMENTS* pour voir vos accords.
-```
+     🏘️ Votre communauté : Fondjomenkwet (Fonjoka)
+     🏘️ Leur communauté : Banja (Banjika)
 
-## Demo Script for Presentation
+     💡 Les échanges sont limités à votre communauté
+     pour maintenir l'économie locale.
 
-### Demo Flow
-```
-🎯 DÉMO TROC-SERVICE
-
-1. Inscription utilisateur A
-2. Inscription utilisateur B  
-3. Utilisateur A propose un service
-4. Utilisateur B recherche et trouve A
-5. B propose un échange à A
-6. A confirme l'échange
-7. Contrat créé sur blockchain
-8. Services échangés
-9. Accord finalisé avec notation
-
-Durée estimée : 5-7 minutes
+     🔍 Recherchez des services dans Fondjomenkwet."
 ```
 
-### Demo Commands Sequence
+### **Échange expiré**
 ```
-User A:
-REGISTER
-[Name: Alice]
-[Phone: +237 6 97 36 70 17]
-[Email: alice@example.com]
-OFFER design logo 3
-SKIP
+🤖 : "⏰ Échange expiré !
 
-User B:
-REGISTER  
-[Name: Bob]
-[Phone: +237 6 97 36 70 18]
-[Email: bob@example.com]
-SKIP
-NEED design
+     📋 Échange #12345
+     ⏰ Délai dépassé : 24h
+     ❌ Statut : Expiré
 
-SEARCH design
-PROPOSE 1 comptabilité 5
-CONFIRM 1
+     💰 150 Fonjoka remboursés sur votre compte
+     📊 Nouveau solde : 200 Fonjoka
 
-User A:
-MY_AGREEMENTS
-DETAILS 1
-COMPLETE 1
+     💡 Créez un nouvel échange avec un délai plus long."
+```
 
-User B:
-MY_AGREEMENTS
-FINALIZE 1
-RATE 1 5
-``` 
+## 🔧 Commandes Techniques
+
+### **Commandes de base**
+- `*MENU*` - Menu principal
+- `*SOLDE*` - Voir solde Bafoka
+- `*PROFIL*` - Profil utilisateur
+- `*AIDE*` - Aide et commandes
+
+### **Commandes d'échange**
+- `*RECHERCHER [service]*` - Rechercher des services
+- `*OFFRIR [service] [prix]*` - Proposer un service
+- `*PROPOSER [nom] [service] [montant]*` - Créer un échange
+- `*ACCEPTER [ID]*` - Accepter un échange
+- `*TERMINE [ID]*` - Marquer comme terminé
+- `*EVALUER [ID] [note] [commentaire]*` - Évaluer un échange
+
+### **Commandes communautaires**
+- `*COMMUNAUTE*` - Info communauté
+- `*BACKERS*` - Liste des backers
+- `*MEMBRES*` - Membres de la communauté
+
+## 📱 Intégration WhatsApp
+
+### **Webhook Twilio**
+```javascript
+// Endpoint pour recevoir les messages WhatsApp
+app.post('/webhook', async (req, res) => {
+  const { From, Body } = req.body;
+  
+  // Traiter le message et déterminer la réponse
+  const response = await processWhatsAppMessage(From, Body);
+  
+  // Envoyer la réponse via Twilio
+  await sendWhatsAppResponse(From, response);
+  
+  res.status(200).send('OK');
+});
+```
+
+### **Gestion des états**
+```javascript
+// Maintenir l'état de conversation par utilisateur
+const userStates = new Map();
+
+function getNextState(userId, message) {
+  const currentState = userStates.get(userId);
+  
+  switch(currentState) {
+    case 'WAITING_COMMUNITY_CHOICE':
+      return handleCommunityChoice(userId, message);
+    case 'WAITING_USERNAME':
+      return handleUsername(userId, message);
+    case 'WAITING_SERVICE_SEARCH':
+      return handleServiceSearch(userId, message);
+    // ... autres états
+  }
+}
+```
+
+## 🎯 Points Clés de l'Expérience
+
+1. **Simplicité** : Interface WhatsApp familière
+2. **Localité** : Chaque communauté a sa monnaie
+3. **Confiance** : Système de réputation blockchain
+4. **Inclusivité** : Accessible sans compte bancaire
+5. **Durabilité** : Backers connectent virtuel et réel
+
+## 🚀 Déploiement
+
+1. **Compiler le contrat** : `npx hardhat compile`
+2. **Déployer** : `npx hardhat run scripts/deploy-bafoka-community.js --network mumbai`
+3. **Tester** : `npx hardhat test`
+4. **Intégrer WhatsApp** : Mettre à jour le bot avec les nouvelles commandes
+
+---
+
+**🎉 Votre Troc-Service avec monnaie communautaire Bafoka est prêt !** 
