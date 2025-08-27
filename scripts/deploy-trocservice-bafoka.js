@@ -10,10 +10,13 @@ async function main() {
   const trocServiceContract = await TrocServiceBafoka.deploy();
   
   // Wait for deployment to finish
-  await trocServiceContract.deployed();
+  await trocServiceContract.waitForDeployment();
+  
+  // Get contract address for reuse
+  const contractAddress = await trocServiceContract.getAddress();
   
   console.log("✅ TrocService Bafoka deployed successfully!");
-  console.log("📍 Contract Address:", trocServiceContract.address);
+  console.log("📍 Contract Address:", contractAddress);
   console.log("🌐 Network:", network.name);
   
   // Verify the deployment
@@ -28,7 +31,7 @@ async function main() {
     if (network.name !== "hardhat" && network.name !== "localhost") {
       console.log("🔍 Verifying on Etherscan...");
       await hre.run("verify:verify", {
-        address: trocServiceContract.address,
+        address: contractAddress,
         constructorArguments: [],
       });
       console.log("✅ Contract verified on Etherscan!");
@@ -52,7 +55,7 @@ async function main() {
   // Save deployment info
   const deploymentInfo = {
     contractName: "TrocServiceBafoka",
-    address: trocServiceContract.address,
+    address: contractAddress,
     network: network.name,
     deployer: (await ethers.getSigners())[0].address,
     deploymentTime: new Date().toISOString(),
@@ -91,10 +94,12 @@ async function main() {
   console.log("5. Deploy to production with monitoring");
   
   console.log("\n🔗 Contract Links:");
-  if (network.name === "mumbai") {
-    console.log(`Polygonscan: https://mumbai.polygonscan.com/address/${trocServiceContract.address}`);
+  if (network.name === "sepolia") {
+    console.log(`Etherscan: https://sepolia.etherscan.io/address/${contractAddress}`);
+  } else if (network.name === "mumbai") {
+    console.log(`Polygonscan: https://mumbai.polygonscan.com/address/${contractAddress}`);
   } else if (network.name === "polygon") {
-    console.log(`Polygonscan: https://polygonscan.com/address/${trocServiceContract.address}`);
+    console.log(`Polygonscan: https://polygonscan.com/address/${contractAddress}`);
   }
   
   console.log("\n📚 Documentation:");

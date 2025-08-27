@@ -1,9 +1,9 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.19;
+pragma solidity ^0.8.20;
 
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
-import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
+import "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
 
 /**
  * @title TrocServiceBafoka - Unified Community Service Exchange Contract
@@ -131,7 +131,7 @@ contract TrocServiceBafoka is ERC20, Ownable, ReentrancyGuard {
     
     // ========== CONSTRUCTOR ==========
     
-    constructor() ERC20("TrocService Bafoka", "TSB") {
+    constructor() ERC20("TrocService Bafoka", "TSB") Ownable(msg.sender) {
         nextCommunityId = 1;
         nextOfferId = 1;
         nextExchangeId = 1;
