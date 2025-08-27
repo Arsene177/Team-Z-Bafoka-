@@ -1,3 +1,7 @@
+git checkout -b main
+git add .
+git remote add origin https://github.com/Arsene177/Team-Z-Bafoka-.git
+git config --global user.email "arsenedjonkoun5@gmail.com"
 git init
 npx hardhat run scripts/deploy-agreement.js --network sepolia
 npx hardhat run scripts/deploy-greeter.js --network sepolia
