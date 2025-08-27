@@ -106,3 +106,12 @@ build/
 # Temporary files
 tmp/
 temp/
+
+# Project specific files
+cache/
+artifacts/
+Bafoka-teamZ-main/
+
+# Batch files for local development
+*.bat
+*.ps1
